@@ -1,0 +1,142 @@
+﻿<Window x:Class="MAXIUI.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        mc:Ignorable="d"
+       
+        Title="Employees - Beneficiaries" Height="1000
+        " MaxHeight="1000" Width="1286">
+    <Window.Resources>
+        
+        <ControlTemplate x:Key="validationTemplate">
+            <Grid>
+                <Label Foreground="Red" HorizontalAlignment="Right" VerticalAlignment="Center">Please insert a integer</Label>
+                <Border BorderThickness="1" BorderBrush="Red">
+                    <AdornedElementPlaceholder />
+                </Border>
+            </Grid>
+        </ControlTemplate>
+    </Window.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="222*"/>
+            <ColumnDefinition Width="869*"/>
+        </Grid.ColumnDefinitions>
+        <Grid x:Name="ViewEmployees" Visibility="Visible" Grid.ColumnSpan="2">
+            <Label x:Name="lblFirstName" Content="First Name:" HorizontalAlignment="Left" Margin="44,78,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblLastName" Content="Last Name:" HorizontalAlignment="Left" Margin="44,108,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblDateOfBirth" Content="Date Of Birth:" HorizontalAlignment="Left" Margin="44,138,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblEmployeeNumber" Content="Employee Number:" HorizontalAlignment="Left" Margin="44,168,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblCurp" Content="CURP:" HorizontalAlignment="Left" Margin="44,198,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblNss" Content="NSS:" HorizontalAlignment="Left" Margin="44,228,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblPhone" Content="Phone Number:" HorizontalAlignment="Left" Margin="44,258,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblNationality" Content="Nationality:" HorizontalAlignment="Left" Margin="44,288,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtFirstName" HorizontalAlignment="Left" Margin="159,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtLastName" HorizontalAlignment="Left" Margin="159,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <DatePicker x:Name="dpkDateOfBirth" HorizontalAlignment="Left" Margin="160,139,0,0" VerticalAlignment="Top" Width="119" />
+            <TextBox x:Name="txtEmployeeNumber" HorizontalAlignment="Left" Margin="159,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120" Validation.ErrorTemplate="{StaticResource validationTemplate}" PreviewTextInput="txtEmployeeNumber_PreviewTextInput" TextChanged="txtEmployeeNumber_TextChanged"/>
+            <TextBox x:Name="txtCurp" HorizontalAlignment="Left" Margin="130,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+            <TextBox x:Name="txtNss" HorizontalAlignment="Left" Margin="159,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtPhone" HorizontalAlignment="Left" Margin="159,262,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtNationality" HorizontalAlignment="Left" Margin="159,292,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtId" HorizontalAlignment="Left" Visibility="Hidden" Margin="200,292,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtIsDeleted" HorizontalAlignment="Left" Visibility="Hidden" Margin="200,292,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="btnSaveEmployee" Content="Save Employee" HorizontalAlignment="Left" Margin="47,319,0,0" VerticalAlignment="Top" Width="108" Click="btnSaveEmployee_Click"/>
+            <DataGrid x:Name="dgEmployees" Margin="297,112,51,692" IsReadOnly="True" CanUserAddRows="False" ItemsSource="{Binding}" AutoGenerateColumns="False" xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="First Name" Binding="{Binding Path=FirstName}"/>
+                    <DataGridTextColumn Header="Last Name" Binding="{Binding Path=LastName}"/>
+                    <DataGridTextColumn Header="Date of Birth" Binding="{Binding Path=DateOfBirth}"/>
+                    <DataGridTextColumn Header="Employee Number" Binding="{Binding Path=EmployeeNumber}"/>
+                    <DataGridTextColumn Header="CURP" Binding="{Binding Path=Curp}"/>
+                    <DataGridTextColumn Header="SSN" Binding="{Binding Path=Ssn}"/>
+                    <DataGridTextColumn Header="Phone" Binding="{Binding Path=PhoneNumber}"/>
+                    <DataGridTextColumn Header="Nationality" Binding="{Binding Path=Nationality}"/>
+                    <DataGridTextColumn Header="Is Deleted" Binding="{Binding Path=IsDeleted}" Visibility="Hidden"/>
+                    <DataGridTemplateColumn Header="Edit Action">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="btnEditEmployee">Edit</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Delete Action">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="btnDeleteEmployee">Delete</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Beneficiaries">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="btnAdminBeneficiariesByEmployee">Beneficiaries</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnLoadEmployees" Content="Load Employees" HorizontalAlignment="Left" Margin="297,80,0,0" VerticalAlignment="Top" Width="178" Click="btnLoadEmployees_Click" RenderTransformOrigin="0.333,0.442"/>
+            <Button x:Name="btnCancelEdit" Content="Cancel Edit" HorizontalAlignment="Left" Margin="165,319,0,0" VerticalAlignment="Top" Width="108" Visibility="Hidden" Click="btnCancelEdit_Click"/>
+        </Grid>
+        <Grid x:Name="ViewBeneficiaries" Visibility="Visible" Margin="10,400,49,10" Grid.ColumnSpan="2">
+
+            <Label x:Name="lblFirstNameB" Content="First Name:" HorizontalAlignment="Left" Margin="44,78,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblLastNameB" Content="Last Name:" HorizontalAlignment="Left" Margin="44,108,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblDateOfBirthB" Content="Date Of Birth:" HorizontalAlignment="Left" Margin="44,138,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblPercentage" Content="Participation Percentage:" HorizontalAlignment="Left" Margin="44,168,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblCurpB" Content="CURP:" HorizontalAlignment="Left" Margin="44,198,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblNssB" Content="NSS:" HorizontalAlignment="Left" Margin="44,228,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblPhoneB" Content="Phone Number:" HorizontalAlignment="Left" Margin="44,258,0,0" VerticalAlignment="Top"/>
+            <Label x:Name="lblNationalityB" Content="Nationality:" HorizontalAlignment="Left" Margin="44,288,0,0" VerticalAlignment="Top"/>
+            <TextBox x:Name="txtFirstNameB" HorizontalAlignment="Left" Margin="159,82,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtLastNameB" HorizontalAlignment="Left" Margin="159,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <DatePicker x:Name="dpkDateOfBirthB" HorizontalAlignment="Left" Margin="160,139,0,0" VerticalAlignment="Top" Width="119"/>
+            <TextBox x:Name="txtParticipationPercentage" HorizontalAlignment="Left" Margin="190,172,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="89" Validation.ErrorTemplate="{StaticResource validationTemplate}" PreviewTextInput="txtParticipationPercentage_PreviewTextInput" TextChanged="txtParticipationPercentage_TextChanged" MaxLength="3"/>
+            <TextBox x:Name="txtCurpB" HorizontalAlignment="Left" Margin="130,202,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150"/>
+            <TextBox x:Name="txtNssB" HorizontalAlignment="Left" Margin="159,232,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtPhoneB" HorizontalAlignment="Left" Margin="159,262,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtNationalityB" HorizontalAlignment="Left" Margin="159,292,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtIdB" HorizontalAlignment="Left" Visibility="Hidden" Margin="200,292,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtEmployeeIdB" HorizontalAlignment="Left" Visibility="Hidden" Margin="200,292,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtParticipationPercentageOrigin" HorizontalAlignment="Left" Visibility="Hidden" Margin="200,292,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <TextBox x:Name="txtIsDeletedB" HorizontalAlignment="Left" Visibility="Hidden" Margin="200,292,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+            <Button x:Name="btnSaveBeneficiary" Content="Save Beneficiary" HorizontalAlignment="Left" Margin="47,319,0,0" VerticalAlignment="Top" Width="108" Click="btnSaveBeneficiary_Click"/>
+
+            <DataGrid x:Name="dgBeneficiaries" Margin="284,108,22,260" IsReadOnly="True" CanUserAddRows="False" ItemsSource="{Binding}" AutoGenerateColumns="False" xmlns:my="http://schemas.microsoft.com/wpf/2008/toolkit">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Path=Id}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="First Name" Binding="{Binding Path=FirstName}"/>
+                    <DataGridTextColumn Header="Last Name" Binding="{Binding Path=LastName}"/>
+                    <DataGridTextColumn Header="Date of Birth" Binding="{Binding Path=DateOfBirth}"/>
+                    <DataGridTextColumn Header="Employee Id" Binding="{Binding Path=EmployeeId}" Visibility="Hidden"/>
+                    <DataGridTextColumn Header="CURP" Binding="{Binding Path=Curp}"/>
+                    <DataGridTextColumn Header="SSN" Binding="{Binding Path=Ssn}"/>
+                    <DataGridTextColumn Header="Phone" Binding="{Binding Path=PhoneNumber}"/>
+                    <DataGridTextColumn Header="Nationality" Binding="{Binding Path=Nationality}"/>
+                    <DataGridTextColumn Header="Participation Percentage" Binding="{Binding Path=ParticipationPercentage}"/>
+                    <DataGridTextColumn Header="Is Deleted" Binding="{Binding Path=IsDeleted}" Visibility="Hidden"/>
+                    <DataGridTemplateColumn Header="Edit Action">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="btnEditBeneficiary">Edit</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Delete Action">
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Click="btnDeleteBeneficiary">Delete</Button>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                </DataGrid.Columns>
+            </DataGrid>
+            <Button x:Name="btnFinish" Content="Cancel" HorizontalAlignment="Left" Margin="284,80,0,0" VerticalAlignment="Top" Width="199" Click="btnFinish_Click"/>
+            <Button x:Name="btnCancelEditB" Content="Cancel Edit" HorizontalAlignment="Left" Margin="165,319,0,0" VerticalAlignment="Top" Width="108" Visibility="Hidden" Click="btnCancelEditB_Click"/>
+            <Label x:Name="lblLegendEmployee" Content="Legend" HorizontalAlignment="Left" Margin="44,32,0,0" VerticalAlignment="Top"/>
+        </Grid>
+    </Grid>
+</Window>

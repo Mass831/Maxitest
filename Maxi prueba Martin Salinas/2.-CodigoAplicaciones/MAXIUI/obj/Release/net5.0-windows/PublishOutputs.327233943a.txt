@@ -1,0 +1,11 @@
+C:\Users\Hp\source\repos\MAXI\MAXIUI\bin\Release\net5.0-windows\publish\MAXIUI.exe
+C:\Users\Hp\source\repos\MAXI\MAXIUI\bin\Release\net5.0-windows\publish\MAXIUI.dll
+C:\Users\Hp\source\repos\MAXI\MAXIUI\bin\Release\net5.0-windows\publish\MAXIUI.deps.json
+C:\Users\Hp\source\repos\MAXI\MAXIUI\bin\Release\net5.0-windows\publish\MAXIUI.runtimeconfig.json
+C:\Users\Hp\source\repos\MAXI\MAXIUI\bin\Release\net5.0-windows\publish\MAXIUI.dll.config
+C:\Users\Hp\source\repos\MAXI\MAXIUI\bin\Release\net5.0-windows\publish\MAXIUI.pdb
+C:\Users\Hp\source\repos\MAXI\MAXIUI\bin\Release\net5.0-windows\publish\System.Net.Http.Formatting.dll
+C:\Users\Hp\source\repos\MAXI\MAXIUI\bin\Release\net5.0-windows\publish\Newtonsoft.Json.dll
+C:\Users\Hp\source\repos\MAXI\MAXIUI\bin\Release\net5.0-windows\publish\Newtonsoft.Json.Bson.dll
+C:\Users\Hp\source\repos\MAXI\MAXIUI\bin\Release\net5.0-windows\publish\ENTITIES.dll
+C:\Users\Hp\source\repos\MAXI\MAXIUI\bin\Release\net5.0-windows\publish\ENTITIES.pdb

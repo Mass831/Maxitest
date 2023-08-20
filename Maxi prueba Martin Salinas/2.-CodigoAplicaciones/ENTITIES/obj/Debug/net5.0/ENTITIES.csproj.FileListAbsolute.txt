@@ -1,0 +1,17 @@
+C:\Users\Hp\source\repos\MAXI\ENTITIES2\obj\Debug\net5.0\ENTITIES.csproj.AssemblyReference.cache
+C:\Users\Hp\source\repos\MAXI\ENTITIES2\obj\Debug\net5.0\ENTITIES.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hp\source\repos\MAXI\ENTITIES2\obj\Debug\net5.0\ENTITIES.AssemblyInfoInputs.cache
+C:\Users\Hp\source\repos\MAXI\ENTITIES2\obj\Debug\net5.0\ENTITIES.AssemblyInfo.cs
+C:\Users\Hp\source\repos\MAXI\ENTITIES2\obj\Debug\net5.0\ENTITIES.csproj.CoreCompileInputs.cache
+C:\Users\Hp\source\repos\MAXI\ENTITIES\bin\Debug\net5.0\ENTITIES.deps.json
+C:\Users\Hp\source\repos\MAXI\ENTITIES\bin\Debug\net5.0\ENTITIES.dll
+C:\Users\Hp\source\repos\MAXI\ENTITIES\bin\Debug\net5.0\ENTITIES.pdb
+C:\Users\Hp\source\repos\MAXI\ENTITIES\obj\Debug\net5.0\ENTITIES.csproj.AssemblyReference.cache
+C:\Users\Hp\source\repos\MAXI\ENTITIES\obj\Debug\net5.0\ENTITIES.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Hp\source\repos\MAXI\ENTITIES\obj\Debug\net5.0\ENTITIES.AssemblyInfoInputs.cache
+C:\Users\Hp\source\repos\MAXI\ENTITIES\obj\Debug\net5.0\ENTITIES.AssemblyInfo.cs
+C:\Users\Hp\source\repos\MAXI\ENTITIES\obj\Debug\net5.0\ENTITIES.csproj.CoreCompileInputs.cache
+C:\Users\Hp\source\repos\MAXI\ENTITIES\obj\Debug\net5.0\ENTITIES.dll
+C:\Users\Hp\source\repos\MAXI\ENTITIES\obj\Debug\net5.0\refint\ENTITIES.dll
+C:\Users\Hp\source\repos\MAXI\ENTITIES\obj\Debug\net5.0\ENTITIES.pdb
+C:\Users\Hp\source\repos\MAXI\ENTITIES\obj\Debug\net5.0\ref\ENTITIES.dll
